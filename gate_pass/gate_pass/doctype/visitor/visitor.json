@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VP-.DD.-.###",
+ "creation": "2024-04-07 19:14:31.828457",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "visitor_name",
+  "visitor_company",
+  "column_break_qxt29",
+  "cnic",
+  "contact_no",
+  "point_of_contact",
+  "column_break_e6gsr",
+  "confirmation_call",
+  "block_list",
+  "reason_of_block",
+  "visitor_no",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "fieldname": "visitor_name",
+   "fieldtype": "Data",
+   "label": "Visitor Name"
+  },
+  {
+   "fieldname": "visitor_company",
+   "fieldtype": "Data",
+   "label": "Visitor Company"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC"
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Data",
+   "label": "Contact No"
+  },
+  {
+   "fieldname": "point_of_contact",
+   "fieldtype": "Data",
+   "label": "Point Of Contact"
+  },
+  {
+   "default": "0",
+   "fieldname": "confirmation_call",
+   "fieldtype": "Check",
+   "label": "Confirmation Call"
+  },
+  {
+   "default": "0",
+   "fieldname": "block_list",
+   "fieldtype": "Check",
+   "label": "Block List"
+  },
+  {
+   "depends_on": "eval:doc.block_list ==1;",
+   "fieldname": "reason_of_block",
+   "fieldtype": "Data",
+   "label": "Reason Of Block"
+  },
+  {
+   "fieldname": "visitor_no",
+   "fieldtype": "Data",
+   "label": "Visitor No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Visitor",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qxt29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_e6gsr",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-04-08 16:56:23.201622",
+ "modified_by": "Administrator",
+ "module": "gate pass",
+ "name": "Visitor",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

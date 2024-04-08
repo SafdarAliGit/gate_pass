@@ -1,0 +1,8 @@
+// Copyright (c) 2024, Tech Ventures and contributors
+// For license information, please see license.txt
+
+frappe.ui.form.on('Visitor', {
+	refresh: function(frm) {
+        frm.set_value('visitor_no',frm.doc.name);
+	}
+});

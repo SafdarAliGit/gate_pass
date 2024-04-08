@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "GIP-.YYYY.-.#####",
+ "creation": "2024-04-08 04:58:41.004339",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "entry_no",
+  "gate_pass_inward_type",
+  "date",
+  "column_break_ougwf",
+  "supplier",
+  "purchase_order_no",
+  "outward_gate_pass",
+  "column_break_68uki",
+  "delivery_challan_no",
+  "vechile_no",
+  "section_break_bs2dq",
+  "get_items",
+  "gate_inward_pass_items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "entry_no",
+   "fieldtype": "Data",
+   "label": "Entry No",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "fieldname": "gate_pass_inward_type",
+   "fieldtype": "Select",
+   "label": "Gate Pass Inward Type ",
+   "options": "\nPO\nSample\nOutward"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "purchase_order_no",
+   "fieldtype": "Data",
+   "label": "Purchase Order No"
+  },
+  {
+   "fieldname": "outward_gate_pass",
+   "fieldtype": "Data",
+   "label": "Outward Gate Pass"
+  },
+  {
+   "fieldname": "delivery_challan_no",
+   "fieldtype": "Data",
+   "label": "Delivery Challan No"
+  },
+  {
+   "fieldname": "vechile_no",
+   "fieldtype": "Data",
+   "label": "Vechile No"
+  },
+  {
+   "fieldname": "get_items",
+   "fieldtype": "Button",
+   "label": "Get Items "
+  },
+  {
+   "fieldname": "gate_inward_pass_items",
+   "fieldtype": "Table",
+   "label": "Gate Inward Pass Items",
+   "options": "Gate Inward Pass Items"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gate Inward Pass",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_bs2dq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ougwf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_68uki",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-04-08 17:03:15.611616",
+ "modified_by": "Administrator",
+ "module": "gate pass",
+ "name": "Gate Inward Pass",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
