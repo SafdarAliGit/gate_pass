@@ -10,10 +10,12 @@
  "field_order": [
   "entry_no",
   "gate_pass_inward_type",
-  "date",
+  "party",
   "column_break_ougwf",
-  "supplier",
-  "purchase_order_no",
+  "date",
+  "po_no",
+  "sample_no",
+  "outward_no",
   "outward_gate_pass",
   "column_break_68uki",
   "delivery_challan_no",
@@ -41,17 +43,6 @@
    "fieldtype": "Select",
    "label": "Gate Pass Inward Type ",
    "options": "\nPO\nSample\nOutward"
-  },
-  {
-   "fieldname": "supplier",
-   "fieldtype": "Link",
-   "label": "Supplier",
-   "options": "Supplier"
-  },
-  {
-   "fieldname": "purchase_order_no",
-   "fieldtype": "Data",
-   "label": "Purchase Order No"
   },
   {
    "fieldname": "outward_gate_pass",
@@ -99,12 +90,39 @@
   {
    "fieldname": "column_break_68uki",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Link",
+   "label": "Party",
+   "options": "Supplier"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_inward_type == 'PO';",
+   "fieldname": "po_no",
+   "fieldtype": "Link",
+   "label": "PO No",
+   "options": "Purchase Order"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_inward_type == 'Sample';",
+   "fieldname": "sample_no",
+   "fieldtype": "Link",
+   "label": "Sample No",
+   "options": "Purchase Order"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_inward_type == 'Outward';",
+   "fieldname": "outward_no",
+   "fieldtype": "Link",
+   "label": "Outward No",
+   "options": "Purchase Order"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-08 17:03:15.611616",
+ "modified": "2024-04-08 18:16:27.311481",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Inward Pass",

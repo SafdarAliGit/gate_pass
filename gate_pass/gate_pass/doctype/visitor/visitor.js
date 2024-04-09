@@ -3,6 +3,9 @@
 
 frappe.ui.form.on('Visitor', {
 	refresh: function(frm) {
+		 if (frm.is_new()) {
+            frm.set_value('date', frappe.datetime.now_datetime());
+        }
         frm.set_value('visitor_no',frm.doc.name);
 	}
 });
