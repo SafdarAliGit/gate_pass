@@ -6,5 +6,8 @@ frappe.ui.form.on('Check Out', {
  if (frm.is_new()) {
             frm.set_value('date', frappe.datetime.now_datetime());
         }
-	}
+	},
+    after_save: function (frm) {
+        frappe.set_route("Form", "Check Out", "new-check-out");
+    }
 });

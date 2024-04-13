@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "CO-.DD.-.###",
+ "autoname": "CO-.DD.-.MM.-.YYYY.-.###",
  "creation": "2024-04-07 22:07:25.021891",
  "default_view": "List",
  "doctype": "DocType",
@@ -83,9 +83,8 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-04-08 17:01:45.374680",
+ "modified": "2024-04-13 17:58:22.937061",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Check Out",

@@ -36,3 +36,23 @@ def fetch_gop_items(**args):
     return {
         "dni": dni_result,
     }
+
+@frappe.whitelist()
+def fetch_employee_info(**args):
+    attendance_device_id = args.get('attendance_device_id')
+    emp = frappe.qb.DocType("Employee")
+    parent_query = (
+        frappe.qb.from_(emp)
+        .select(
+            emp.employee,
+            emp.employee_name,
+            emp.attendance_device_id,
+            emp.department,
+            emp.division
+        ).where((emp.attendance_device_id == attendance_device_id))
+    )
+    emp_result = parent_query.run(as_dict=True)
+
+    return {
+        "emp": emp_result,
+    }

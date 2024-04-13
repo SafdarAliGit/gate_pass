@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "CI-.DD.-.###",
+ "autoname": "CI-.DD.-.MM.-.YYYY.-.###",
  "creation": "2024-04-07 21:41:58.844158",
  "default_view": "List",
  "doctype": "DocType",
@@ -74,9 +74,8 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-04-08 17:00:55.162676",
+ "modified": "2024-04-13 17:57:26.736838",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Check In",
