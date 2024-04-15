@@ -12,8 +12,11 @@
   "date",
   "returnable",
   "gate_pass_outward_type",
-  "party",
+  "customer",
+  "supplier",
   "dn_no",
+  "po_no",
+  "prr_no",
   "column_break_p8dwh",
   "inward_gate_pass",
   "delivery_challan_no",
@@ -48,12 +51,6 @@
    "fieldtype": "Select",
    "label": "Gate Pass Outward Type ",
    "options": "\nDN\nPO [Service Order]\nPurchase Receipt Return"
-  },
-  {
-   "fieldname": "party",
-   "fieldtype": "Link",
-   "label": "Party",
-   "options": "Customer"
   },
   {
    "fieldname": "column_break_p8dwh",
@@ -114,16 +111,45 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval:doc.gate_pass_outward_type == 'DN';",
    "fieldname": "dn_no",
    "fieldtype": "Link",
    "label": "DN No",
    "options": "Delivery Note"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_outward_type =='DN';",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_outward_type == 'PO [Service Order]' || doc.gate_pass_outward_type == 'Purchase Receipt Return';",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_outward_type == 'PO [Service Order]';",
+   "fieldname": "po_no",
+   "fieldtype": "Link",
+   "label": "PO No",
+   "options": "Purchase Order"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_outward_type == 'Purchase Receipt Return';",
+   "fieldname": "prr_no",
+   "fieldtype": "Link",
+   "label": "PRR No",
+   "options": "Purchase Receipt"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-08 18:38:45.412040",
+ "modified": "2024-04-15 15:04:11.046959",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Outward Pass",

@@ -16,7 +16,6 @@
   "po_no",
   "sample_no",
   "outward_no",
-  "outward_gate_pass",
   "column_break_68uki",
   "delivery_challan_no",
   "vechile_no",
@@ -43,11 +42,6 @@
    "fieldtype": "Select",
    "label": "Gate Pass Inward Type ",
    "options": "\nPO\nSample\nOutward"
-  },
-  {
-   "fieldname": "outward_gate_pass",
-   "fieldtype": "Data",
-   "label": "Outward Gate Pass"
   },
   {
    "fieldname": "delivery_challan_no",
@@ -107,22 +101,21 @@
   {
    "depends_on": "eval:doc.gate_pass_inward_type == 'Sample';",
    "fieldname": "sample_no",
-   "fieldtype": "Link",
-   "label": "Sample No",
-   "options": "Purchase Order"
+   "fieldtype": "Data",
+   "label": "Sample No"
   },
   {
    "depends_on": "eval:doc.gate_pass_inward_type == 'Outward';",
    "fieldname": "outward_no",
    "fieldtype": "Link",
    "label": "Outward No",
-   "options": "Purchase Order"
+   "options": "Gate Outward Pass"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-08 18:16:27.311481",
+ "modified": "2024-04-15 06:33:01.816182",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Inward Pass",

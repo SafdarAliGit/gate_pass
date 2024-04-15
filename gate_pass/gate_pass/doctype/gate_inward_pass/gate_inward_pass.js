@@ -22,6 +22,14 @@ frappe.ui.form.on('Gate Inward Pass', {
                 ]
             };
         });
+        frm.fields_dict['outward_no'].get_query = function (doc) {
+            return {
+                filters: [
+                   ["Gate Outward Pass", "docstatus", "=", 1]
+                ]
+
+            };
+        };
     },
     get_items: function (frm) {
         var po_no = frm.doc.po_no;
