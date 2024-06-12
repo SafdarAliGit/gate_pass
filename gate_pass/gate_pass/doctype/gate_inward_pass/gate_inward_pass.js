@@ -45,11 +45,11 @@ frappe.ui.form.on('Gate Inward Pass', {
     get_items: function (frm) {
         var po_no = frm.doc.po_no;
         var mr_no = frm.doc.mr_no;
-        console.log(po_no, mr_no);
-        if (po_no) {
+
+        if (frm.doc.gate_pass_inward_type=='PO') {
             fetch_gip_items(frm, po_no);
         }
-        if (mr_no) {
+        if (frm.doc.gate_pass_inward_type=='Material Request') {
             fetch_mr_items(frm, mr_no);
         }
 
@@ -94,7 +94,7 @@ function fetch_mr_items(frm, mr_no) {
                 mr_no: mr_no
             },
             callback: function (response) {
-                if (response.message.poi) {
+                if (response.message.mri) {
                     response.message.mri.forEach(function (p) {
                         let entry = frm.add_child("gate_inward_pass_items");
                         entry.item_code = p.item_code,
