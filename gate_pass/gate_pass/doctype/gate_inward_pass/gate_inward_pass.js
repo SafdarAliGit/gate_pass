@@ -82,7 +82,7 @@ function fetch_gip_items(frm, po_no) {
         });
     }
 }
-function fetch_mr_items(frm, po_no) {
+function fetch_mr_items(frm, mr_no) {
     if (mr_no) {
         // Clear existing data before adding new entries
         frm.clear_table("gate_inward_pass_items");
