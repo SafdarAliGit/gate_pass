@@ -94,7 +94,7 @@ function fetch_mr_items(frm, mr_no) {
             },
             callback: function (response) {
                 if (response.message.poi) {
-                    response.message.poi.forEach(function (p) {
+                    response.message.mri.forEach(function (p) {
                         let entry = frm.add_child("gate_inward_pass_items");
                         entry.item_code = p.item_code,
                             entry.qty = p.qty,
