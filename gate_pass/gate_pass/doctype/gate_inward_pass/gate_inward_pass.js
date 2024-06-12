@@ -45,6 +45,7 @@ frappe.ui.form.on('Gate Inward Pass', {
     get_items: function (frm) {
         var po_no = frm.doc.po_no;
         var mr_no = frm.doc.mr_no;
+        console.log(po_no, mr_no);
         if (po_no) {
             fetch_gip_items(frm, po_no);
         }
