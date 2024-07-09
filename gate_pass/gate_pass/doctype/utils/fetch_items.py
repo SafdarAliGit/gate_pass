@@ -10,7 +10,8 @@ def fetch_gip_items(**args):
         .select(
             poi.item_code,
             poi.qty,
-            poi.uom
+            poi.uom,
+            poi.rate
         ).where((poi.parent == po_no))
     )
     poi_result = parent_query.run(as_dict=True)

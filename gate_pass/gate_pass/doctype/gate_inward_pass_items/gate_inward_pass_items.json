@@ -10,7 +10,8 @@
   "qty",
   "uom",
   "item_name",
-  "description"
+  "description",
+  "rate"
  ],
  "fields": [
   {
@@ -44,12 +45,19 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "default": "0",
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Rate"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-04-15 06:27:55.515150",
+ "modified": "2024-07-09 18:14:35.852067",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Inward Pass Items",

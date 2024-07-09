@@ -23,7 +23,9 @@
   "section_break_bs2dq",
   "get_items",
   "gate_inward_pass_items",
-  "amended_from"
+  "amended_from",
+  "ref_no",
+  "ref_doctype"
  ],
  "fields": [
   {
@@ -118,12 +120,29 @@
    "fieldtype": "Link",
    "label": "Material Request",
    "options": "Material Request"
+  },
+  {
+   "fieldname": "ref_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Ref No"
+  },
+  {
+   "fieldname": "ref_doctype",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Ref Doctype"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-06-12 19:11:08.401283",
+ "links": [
+  {
+   "link_doctype": "Purchase Receipt",
+   "link_fieldname": "ref_no"
+  }
+ ],
+ "modified": "2024-07-09 18:36:37.457554",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Inward Pass",
