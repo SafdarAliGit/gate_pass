@@ -32,8 +32,8 @@ frappe.ui.form.on('Gate Inward Pass', {
             };
         };
     },
-    gate_pass_inward_type: function(frm) {
-        frm.set_query('mr_no', function() {
+    gate_pass_inward_type: function (frm) {
+        frm.set_query('mr_no', function () {
             return {
                 filters: [
                     ["Material Request", "material_request_type", "=", "Customer Provided"],
@@ -46,10 +46,10 @@ frappe.ui.form.on('Gate Inward Pass', {
         var po_no = frm.doc.po_no;
         var mr_no = frm.doc.mr_no;
 
-        if (frm.doc.gate_pass_inward_type=='PO') {
+        if (frm.doc.gate_pass_inward_type == 'PO') {
             fetch_gip_items(frm, po_no);
         }
-        if (frm.doc.gate_pass_inward_type=='Material Request') {
+        if (frm.doc.gate_pass_inward_type == 'Material Request') {
             fetch_mr_items(frm, mr_no);
         }
 
@@ -84,6 +84,7 @@ function fetch_gip_items(frm, po_no) {
         });
     }
 }
+
 function fetch_mr_items(frm, mr_no) {
     if (mr_no) {
         // Clear existing data before adding new entries

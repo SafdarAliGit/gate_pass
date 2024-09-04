@@ -25,7 +25,7 @@ class GateInwardPass(Document):
 
         try:
 
-            pr.submit()
+            pr.save()
             frappe.db.commit()
             self.ref_no = pr.name
             self.ref_doctype = "Purchase Receipt"
