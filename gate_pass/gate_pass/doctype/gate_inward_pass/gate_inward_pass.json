@@ -11,9 +11,11 @@
   "entry_no",
   "gate_pass_inward_type",
   "party",
+  "customer",
   "column_break_ougwf",
   "date",
   "po_no",
+  "so_no",
   "sample_no",
   "outward_no",
   "mr_no",
@@ -44,7 +46,7 @@
    "fieldname": "gate_pass_inward_type",
    "fieldtype": "Select",
    "label": "Gate Pass Inward Type ",
-   "options": "\nPO\nSample\nOutward\nMaterial Request"
+   "options": "\nPO\nSO\nSample\nOutward\nMaterial Request"
   },
   {
    "fieldname": "delivery_challan_no",
@@ -89,6 +91,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.gate_pass_inward_type != 'SO';",
    "fieldname": "party",
    "fieldtype": "Link",
    "label": "Party",
@@ -132,6 +135,20 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Ref Doctype"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_inward_type == 'SO';",
+   "fieldname": "so_no",
+   "fieldtype": "Link",
+   "label": "SO No",
+   "options": "Sales Order"
+  },
+  {
+   "depends_on": "eval:doc.gate_pass_inward_type == 'SO';",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -142,7 +159,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-07-09 18:36:37.457554",
+ "modified": "2024-09-28 18:34:10.496313",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Inward Pass",

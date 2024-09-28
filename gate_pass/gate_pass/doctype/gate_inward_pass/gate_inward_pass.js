@@ -15,6 +15,14 @@ frappe.ui.form.on('Gate Inward Pass', {
 
             };
         };
+        frm.fields_dict['so_no'].get_query = function (doc) {
+            return {
+                filters: [
+                   ["Sales Order", "customer", "=", doc.customer], ["Sales Order", "docstatus", "=", 1]
+                ]
+
+            };
+        };
 
         frm.set_query('item_code', 'gate_inward_pass_items', function (doc, cdt, cdn) {
             return {
@@ -45,9 +53,13 @@ frappe.ui.form.on('Gate Inward Pass', {
     get_items: function (frm) {
         var po_no = frm.doc.po_no;
         var mr_no = frm.doc.mr_no;
+        var so_no = frm.doc.so_no;
 
         if (frm.doc.gate_pass_inward_type == 'PO') {
             fetch_gip_items(frm, po_no);
+        }
+        if (frm.doc.gate_pass_inward_type == 'SO') {
+            fetch_so_items(frm, so_no);
         }
         if (frm.doc.gate_pass_inward_type == 'Material Request') {
             fetch_mr_items(frm, mr_no);
@@ -73,6 +85,33 @@ function fetch_gip_items(frm, po_no) {
                     response.message.poi.forEach(function (p) {
                         let entry = frm.add_child("gate_inward_pass_items");
                         entry.item_code = p.item_code,
+                            entry.qty = p.qty,
+                            entry.uom = p.uom,
+                            entry.rate = p.rate
+
+                    });
+                }
+                frm.refresh_field('gate_inward_pass_items');
+            }
+        });
+    }
+}
+
+function fetch_so_items(frm, so_no) {
+    if (so_no) {
+        // Clear existing data before adding new entries
+        frm.clear_table("gate_inward_pass_items");
+
+        frappe.call({
+            method: "gate_pass.gate_pass.doctype.utils.fetch_items.fetch_so_items",
+            args: {
+                so_no: so_no
+            },
+            callback: function (response) {
+                if (response.message.soi) {
+                    response.message.soi.forEach(function (p) {
+                        let entry = frm.add_child("gate_inward_pass_items");
+                        entry.item_code = p.finish_item,
                             entry.qty = p.qty,
                             entry.uom = p.uom,
                             entry.rate = p.rate

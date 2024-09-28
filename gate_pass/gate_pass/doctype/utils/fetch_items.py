@@ -20,6 +20,24 @@ def fetch_gip_items(**args):
         "poi": poi_result,
     }
 @frappe.whitelist()
+def fetch_so_items(**args):
+    so_no = args.get('so_no')
+    soi = frappe.qb.DocType("Sales Order Item")
+    parent_query = (
+        frappe.qb.from_(soi)
+        .select(
+            soi.finish_item,
+            soi.qty,
+            soi.uom,
+            soi.rate
+        ).where((soi.parent == so_no))
+    )
+    soi_result = parent_query.run(as_dict=True)
+
+    return {
+        "soi": soi_result,
+    }
+@frappe.whitelist()
 def fetch_mr_items(**args):
     mr_no = args.get('mr_no')
     mri = frappe.qb.DocType("Material Request Item")
