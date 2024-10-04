@@ -55,6 +55,23 @@ def fetch_mr_items(**args):
         "mri": mri_result,
     }
 @frappe.whitelist()
+def fetch_outward_items(**args):
+    outward_no = args.get('outward_no')
+    gopi = frappe.qb.DocType("Gate Outward Pass Items")
+    parent_query = (
+        frappe.qb.from_(gopi)
+        .select(
+            gopi.item_code,
+            gopi.qty,
+            gopi.uom
+        ).where((gopi.parent == outward_no))
+    )
+    gopi_result = parent_query.run(as_dict=True)
+
+    return {
+        "gopi": gopi_result,
+    }
+@frappe.whitelist()
 def fetch_gop_items(**args):
     dn_no = args.get('dn_no')
     dni = frappe.qb.DocType("Delivery Note Item")

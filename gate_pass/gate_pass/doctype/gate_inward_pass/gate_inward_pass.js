@@ -54,6 +54,7 @@ frappe.ui.form.on('Gate Inward Pass', {
         var po_no = frm.doc.po_no;
         var mr_no = frm.doc.mr_no;
         var so_no = frm.doc.so_no;
+        var outward_no = frm.doc.outward_no;
 
         if (frm.doc.gate_pass_inward_type == 'PO') {
             fetch_gip_items(frm, po_no);
@@ -63,6 +64,8 @@ frappe.ui.form.on('Gate Inward Pass', {
         }
         if (frm.doc.gate_pass_inward_type == 'Material Request') {
             fetch_mr_items(frm, mr_no);
+        }if (frm.doc.gate_pass_inward_type == 'Outward') {
+            fetch_outward_items(frm, outward_no);
         }
 
     },
@@ -149,3 +152,29 @@ function fetch_mr_items(frm, mr_no) {
         });
     }
 }
+function fetch_outward_items(frm, outward_no) {
+    if (outward_no) {
+        // Clear existing data before adding new entries
+        frm.clear_table("gate_inward_pass_items");
+
+        frappe.call({
+            method: "gate_pass.gate_pass.doctype.utils.fetch_items.fetch_outward_items",
+            args: {
+                outward_no: outward_no
+            },
+            callback: function (response) {
+                if (response.message.gopi) {
+                    response.message.gopi.forEach(function (p) {
+                        let entry = frm.add_child("gate_inward_pass_items");
+                        entry.item_code = p.item_code,
+                            entry.qty = p.qty,
+                            entry.uom = p.uom
+
+                    });
+                }
+                frm.refresh_field('gate_inward_pass_items');
+            }
+        });
+    }
+}
+
