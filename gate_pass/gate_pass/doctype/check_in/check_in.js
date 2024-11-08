@@ -2,16 +2,29 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Check In', {
-	refresh: function(frm) {
- if (frm.is_new()) {
+    refresh: function (frm) {
+
+        frm.set_query('employee', function () {
+            return {
+                filters: {
+                    employee_group: 'Contractor Labour'
+                }
+            };
+        });
+
+        if (frm.is_new()) {
             frm.set_value('date', frappe.datetime.now_datetime());
         }
-	},
-      after_save: function (frm) {
-        frappe.set_route("Form", "Check In", "new-check-in");
+        employee_photo(frm);
     },
+    // after_save: function (frm) {
+    //     frappe.set_route("Form", "Check In", "new-check-in");
+    // },
     employee_id: function (frm) {
         fetch_employee_info(frm, frm.doc.employee_id);
+    },
+    employee: function (frm) {
+        employee_photo(frm);
     }
 });
 
@@ -37,4 +50,21 @@ function fetch_employee_info(frm, attendance_device_id) {
             }
         });
     }
+}
+
+function employee_photo(frm) {
+    if (frm.doc.employee) {
+        frappe.db.get_value('Employee', frm.doc.employee, 'image', (r) => {
+            if (r && r.image) {
+                // Display the image using HTML in the HTML field
+                frm.fields_dict['employee_photo_html'].$wrapper.html(`<img src="${r.image}" width="150px">`);
+            } else {
+                // Clear the HTML field if no image is available
+                frm.fields_dict['employee_photo_html'].$wrapper.html('');
+            }
+        });
+    } else {
+        frm.fields_dict['employee_photo_html'].$wrapper.html('');
+    }
+
 }

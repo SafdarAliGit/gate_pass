@@ -16,7 +16,9 @@
   "department",
   "column_break_3wufh",
   "division",
-  "date"
+  "date",
+  "column_break_brmbx",
+  "employee_photo_html"
  ],
  "fields": [
   {
@@ -71,11 +73,21 @@
   {
    "fieldname": "column_break_3wufh",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_brmbx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_photo_html",
+   "fieldtype": "HTML",
+   "label": "Employee Photo"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-04-13 17:57:26.736838",
+ "modified": "2024-11-08 13:37:30.981904",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Check In",
