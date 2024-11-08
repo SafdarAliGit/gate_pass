@@ -10,6 +10,7 @@
  "field_order": [
   "employee",
   "employee_name",
+  "log_type",
   "column_break_zgi5w",
   "employee_id",
   "amended_from",
@@ -82,12 +83,20 @@
    "fieldname": "employee_photo_html",
    "fieldtype": "HTML",
    "label": "Employee Photo"
+  },
+  {
+   "fieldname": "log_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Log Type",
+   "options": "\nIN\nOUT",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-08 13:37:30.981904",
+ "modified": "2024-11-08 16:13:00.625248",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Check In",
