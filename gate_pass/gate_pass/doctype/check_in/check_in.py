@@ -20,7 +20,7 @@ class CheckIn(Document):
                 ec = frappe.new_doc("Employee Checkin")
                 ec.employee = self.employee
                 ec.log_type = self.log_type
-                ec.time = self.date if self.date else frappe.utils.nowdate()
+                ec.time =  frappe.utils.now()
                 ec.device_id = self.employee_id
                 ec.insert()  # Save the new Employee Checkin document
             else:
