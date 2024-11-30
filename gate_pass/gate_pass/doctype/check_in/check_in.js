@@ -16,6 +16,7 @@ frappe.ui.form.on('Check In', {
             frm.set_value('date', frappe.datetime.now_datetime());
         }
         employee_photo(frm);
+
     },
     // after_save: function (frm) {
     //     frappe.set_route("Form", "Check In", "new-check-in");
@@ -25,6 +26,9 @@ frappe.ui.form.on('Check In', {
     },
     employee: function (frm) {
         employee_photo(frm);
+    },
+    after_save: function (frm) {
+        frappe.new_doc('Check In');
     }
 });
 
@@ -57,7 +61,7 @@ function employee_photo(frm) {
         frappe.db.get_value('Employee', frm.doc.employee, 'image', (r) => {
             if (r && r.image) {
                 // Display the image using HTML in the HTML field
-                frm.fields_dict['employee_photo_html'].$wrapper.html(`<img src="${r.image}" width="150px">`);
+                frm.fields_dict['employee_photo_html'].$wrapper.html(`<img src="${r.image}" width="200px" height="250px">`);
             } else {
                 // Clear the HTML field if no image is available
                 frm.fields_dict['employee_photo_html'].$wrapper.html('');

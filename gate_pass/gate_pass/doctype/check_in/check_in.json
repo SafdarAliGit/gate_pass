@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "CI-.DD.-.MM.-.YYYY.-.###",
+ "autoname": "format:CHK-IN-{employee_name}",
  "creation": "2024-04-07 21:41:58.844158",
  "default_view": "List",
  "doctype": "DocType",
@@ -85,8 +85,10 @@
    "label": "Employee Photo"
   },
   {
+   "default": "IN",
    "fieldname": "log_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Log Type",
    "options": "\nIN\nOUT",
@@ -94,13 +96,12 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-11-08 16:13:00.625248",
+ "modified": "2024-11-30 22:17:04.888738",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Check In",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
