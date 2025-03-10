@@ -27,13 +27,14 @@ class GateInwardPass(Document):
                     "stock_uom": item.uom,
                     "qty": item.qty,
                     "rate": item.rate,
-                    "amount": item.qty * item.rate
+                    "amount": item.qty * item.rate,
+                    "purchase_order": self.po_no
                 })
 
             try:
                 # Save and submit the Purchase Receipt
                 pr.insert()
-                pr.submit()
+                # pr.submit()
 
                 # Update the Gate Inward Pass with the Purchase Receipt reference
                 self.db_set("ref_no", pr.name)
