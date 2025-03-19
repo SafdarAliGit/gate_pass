@@ -33,7 +33,7 @@ class GateInwardPass(Document):
 
             try:
                 # Save and submit the Purchase Receipt
-                pr.insert()
+                pr.save()
                 # pr.submit()
 
                 # Update the Gate Inward Pass with the Purchase Receipt reference
