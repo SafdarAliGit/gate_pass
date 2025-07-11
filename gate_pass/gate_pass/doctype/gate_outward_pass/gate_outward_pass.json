@@ -20,12 +20,13 @@
   "column_break_p8dwh",
   "inward_gate_pass",
   "delivery_challan_no",
-  "amended_from",
   "transporter",
   "vechile_no",
+  "user_signature",
   "section_break_bs2dq",
   "get_items",
-  "gate_outward_pass_items"
+  "gate_outward_pass_items",
+  "amended_from"
  ],
  "fields": [
   {
@@ -144,12 +145,19 @@
    "fieldtype": "Link",
    "label": "PRR No",
    "options": "Purchase Receipt"
+  },
+  {
+   "fieldname": "user_signature",
+   "fieldtype": "Signature",
+   "label": "User Signature",
+   "read_only": 1
   }
  ],
+ "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-15 15:04:11.046959",
+ "modified": "2025-07-11 16:28:28.249006",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Outward Pass",
@@ -169,6 +177,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
