@@ -51,7 +51,7 @@
    "fieldname": "gate_pass_outward_type",
    "fieldtype": "Select",
    "label": "Gate Pass Outward Type ",
-   "options": "\nDN\nPO [Service Order]\nPurchase Receipt Return"
+   "options": "\nDN\nPO [Service Order]\nPurchase Receipt Return\nSample"
   },
   {
    "fieldname": "column_break_p8dwh",
@@ -157,7 +157,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-11 16:28:28.249006",
+ "modified": "2025-12-15 19:24:03.815773",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Outward Pass",
