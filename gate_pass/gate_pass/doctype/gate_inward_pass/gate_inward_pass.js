@@ -168,7 +168,8 @@ function fetch_outward_items(frm, outward_no) {
                         let entry = frm.add_child("gate_inward_pass_items");
                         entry.item_code = p.item_code,
                             entry.qty = p.qty,
-                            entry.uom = p.uom
+                            entry.uom = p.uom,
+                            entry.description = p.description
 
                     });
                 }

@@ -80,7 +80,8 @@ function fetch_gop_items(frm, no,source) {
                         let entry = frm.add_child("gate_outward_pass_items");
                         entry.item_code = p.item_code,
                             entry.qty = p.qty,
-                            entry.uom = p.uom
+                            entry.uom = p.uom,
+                            entry.description = p.description
 
                     });
                 }

@@ -63,7 +63,8 @@ def fetch_outward_items(**args):
         .select(
             gopi.item_code,
             gopi.qty,
-            gopi.uom
+            gopi.uom,
+            gopi.description
         ).where((gopi.parent == outward_no))
     )
     gopi_result = parent_query.run(as_dict=True)
@@ -85,14 +86,15 @@ def fetch_gop_items(**args):
             child = "Purchase Order Item"
     elif(source == "PRR"):
             child = "Purchase Receipt Item"
-            
+
     dni = frappe.qb.DocType(child)
     parent_query = (
         frappe.qb.from_(dni)
         .select(
             dni.item_code,
             dni.qty,
-            dni.uom
+            dni.uom,
+            dni.description
         ).where((dni.parent == no)
         
         )
