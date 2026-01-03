@@ -73,16 +73,32 @@ def fetch_outward_items(**args):
     }
 @frappe.whitelist()
 def fetch_gop_items(**args):
-    dn_no = args.get('dn_no')
-    dni = frappe.qb.DocType("Delivery Note Item")
+    is_return = False
+    no = args.get('no')
+    source = args.get('source')
+    child = ""
+    if(source == "PRR"):
+        is_return = True
+    if(source == "DN"):
+            child = "Delivery Note Item"
+    elif(source == "PO"):
+            child = "Purchase Order Item"
+    elif(source == "PRR"):
+            child = "Purchase Receipt Item"
+            
+    dni = frappe.qb.DocType(child)
     parent_query = (
         frappe.qb.from_(dni)
         .select(
             dni.item_code,
             dni.qty,
             dni.uom
-        ).where((dni.parent == dn_no))
+        ).where((dni.parent == no)
+        
+        )
     )
+    if is_return:
+        parent_query = parent_query.where(dni.is_return == 1)
     dni_result = parent_query.run(as_dict=True)
 
     return {

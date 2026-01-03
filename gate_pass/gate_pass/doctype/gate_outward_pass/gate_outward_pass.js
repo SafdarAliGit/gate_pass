@@ -40,21 +40,39 @@ frappe.ui.form.on('Gate Outward Pass', {
         };
     },
     get_items: function (frm) {
-        var dn_no = frm.doc.dn_no;
-        fetch_gop_items(frm, dn_no);
+        let no = null;
+        let source = null;
 
+        if (frm.doc.dn_no) {
+            no = frm.doc.dn_no;
+            source = "DN";
+        } else if (frm.doc.po_no) {
+            no = frm.doc.po_no;
+            source = "PO";
+        } else if (frm.doc.prr_no) {
+            no = frm.doc.prr_no;
+            source = "PRR";
+        }
+
+        if (no) {
+            fetch_gop_items(frm, no, source);
+        } else {
+            frappe.msgprint(__('Please select at least one reference'));
+        }
     },
 });
 
-function fetch_gop_items(frm, dn_no) {
-    if (dn_no) {
+function fetch_gop_items(frm, no,source) {
+    if (no) {
+        
         // Clear existing data before adding new entries
         frm.clear_table("gate_outward_pass_items");
 
         frappe.call({
             method: "gate_pass.gate_pass.doctype.utils.fetch_items.fetch_gop_items",
             args: {
-                dn_no: dn_no
+                no: no,
+                source: source
             },
             callback: function (response) {
                 if (response.message.dni) {
