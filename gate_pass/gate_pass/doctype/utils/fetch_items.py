@@ -29,7 +29,9 @@ def fetch_so_items(**args):
             soi.finish_item,
             soi.qty,
             soi.uom,
-            soi.rate
+            soi.rate,
+            soi.description
+
         ).where((soi.parent == so_no))
     )
     soi_result = parent_query.run(as_dict=True)

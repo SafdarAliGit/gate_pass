@@ -117,7 +117,8 @@ function fetch_so_items(frm, so_no) {
                         entry.item_code = p.finish_item,
                             entry.qty = p.qty,
                             entry.uom = p.uom,
-                            entry.rate = p.rate
+                            entry.rate = p.rate,
+                            entry.description = p.description
 
                     });
                 }
