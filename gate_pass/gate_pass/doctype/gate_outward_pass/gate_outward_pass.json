@@ -13,6 +13,7 @@
   "returnable",
   "gate_pass_outward_type",
   "customer",
+  "column_break_1wc4",
   "supplier",
   "dn_no",
   "po_no",
@@ -22,6 +23,7 @@
   "delivery_challan_no",
   "transporter",
   "vechile_no",
+  "branch",
   "user_signature",
   "section_break_bs2dq",
   "get_items",
@@ -151,13 +153,23 @@
    "fieldtype": "Signature",
    "label": "User Signature",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1wc4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-05 19:09:37.781355",
+ "modified": "2026-09-05 18:47:21.952840",
  "modified_by": "Administrator",
  "module": "gate pass",
  "name": "Gate Outward Pass",
